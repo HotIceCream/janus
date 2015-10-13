@@ -7,3 +7,7 @@
 .project
 /results
 /bin
+/.idea
+/.gradle
+*.iml
+/build

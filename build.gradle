@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "de.mslab.applications.BicliqueFinderApplication"
+sourceSets {
+    main {
+        java {
+             srcDir 'src'
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.mslab.applications.BicliqueFinderApplication'
+        attributes 'Class-Path': 'lib/commons-cli-1.2.jar lib/itextpdf-5.3.0.jar'
+    }
+    into ('lib') {
+        from 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //releaseJars fileTree(dir: 'libs', include: ['*.jar'])
+}
